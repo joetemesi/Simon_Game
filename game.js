@@ -1,3 +1,4 @@
+var userClickedPattern = [];
 var gamePattern = [];
 var buttonColours = ['red', 'blue', 'green', 'yellow'];
 
@@ -39,3 +40,9 @@ function animationButton(pressedKey) {
         pressedKeyButton.removeClass("pressed");
     }, 100);
 }
+
+$(".btn").click(function(){ //handler funxtion store id of clicked button
+    var userChosenColour = $(this).attr('id');
+    userClickedPattern.push(userChosenColour)
+    console.log(userClickedPattern);
+});
