@@ -14,18 +14,22 @@ switch (randomChosenColour) {
     case "blue":
         var blue = $("#" + randomChosenColour);
         animationButton(randomChosenColour);
+        playSound(randomChosenColour);
         break;
     case "green":
         var green = $("#" + randomChosenColour);
         animationButton(randomChosenColour);
+        playSound(randomChosenColour);
         break;
     case "red":
         var red = $("#" + randomChosenColour);
         animationButton(randomChosenColour);
+        playSound(randomChosenColour);
         break;
     case "yellow":
         var yellow = $("#" + randomChosenColour);
         animationButton(randomChosenColour);
+        playSound(randomChosenColour);
         break; // Add 'break' to exit the 'switch'
     default:
         // Code to be executed if expression doesn't match any case
@@ -44,5 +48,12 @@ function animationButton(pressedKey) {
 $(".btn").click(function(){ //handler funxtion store id of clicked button
     var userChosenColour = $(this).attr('id');
     userClickedPattern.push(userChosenColour)
+    var lastElement = userClickedPattern[userClickedPattern.length - 1];
+    playSound(lastElement);
     console.log(userClickedPattern);
 });
+
+function playSound(buttonColor) {
+    var audio = new Audio("sounds/" + buttonColor + ".mp3");
+    audio.play();
+}
