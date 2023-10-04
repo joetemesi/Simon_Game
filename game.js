@@ -7,34 +7,50 @@ function nextSequence() {
     return buttonColours[randomNumber];
 }
 
-var randomChosenColour = nextSequence();
-gamePattern.push(randomChosenColour);
+// var randomChosenColour = nextSequence();
+// gamePattern.push(randomChosenColour);
 
-switch (randomChosenColour) {
-    case "blue":
-        var blue = $("#" + randomChosenColour);
-        animationButton(randomChosenColour);
-        playSound(randomChosenColour);
-        break;
-    case "green":
-        var green = $("#" + randomChosenColour);
-        animationButton(randomChosenColour);
-        playSound(randomChosenColour);
-        break;
-    case "red":
-        var red = $("#" + randomChosenColour);
-        animationButton(randomChosenColour);
-        playSound(randomChosenColour);
-        break;
-    case "yellow":
-        var yellow = $("#" + randomChosenColour);
-        animationButton(randomChosenColour);
-        playSound(randomChosenColour);
-        break; // Add 'break' to exit the 'switch'
-    default:
-        // Code to be executed if expression doesn't match any case
-        break; // Add 'break' for the 'default' case
-}
+var hasOperationOccurred = false; //check key press number
+
+$(document).keydown(function(event){ //key down event listener
+    if (!hasOperationOccurred){
+        var randomChosenColour = nextSequence();
+    gamePattern.push(randomChosenColour); 
+    console.log(randomChosenColour)
+
+    switch (randomChosenColour) {
+        case "blue":
+            var blue = $("#" + randomChosenColour);
+            animationButton(randomChosenColour);
+            playSound(randomChosenColour);
+            break;
+        case "green":
+            var green = $("#" + randomChosenColour);
+            animationButton(randomChosenColour);
+            playSound(randomChosenColour);
+            break;
+        case "red":
+            var red = $("#" + randomChosenColour);
+            animationButton(randomChosenColour);
+            playSound(randomChosenColour);
+            break;
+        case "yellow":
+            var yellow = $("#" + randomChosenColour);
+            animationButton(randomChosenColour);
+            playSound(randomChosenColour);
+            break; // Add 'break' to exit the 'switch'
+        default:
+            // Code to be executed if expression doesn't match any case
+            break; // Add 'break' for the 'default' case
+    }
+    hasOperationOccurred = true;
+    }
+
+})
+  
+
+
+
 
 function animationButton(pressedKey) {
     var pressedKeyButton = $("#" + pressedKey);
