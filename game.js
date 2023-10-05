@@ -53,6 +53,7 @@ function checkAnswer(currentLevel) {
 
       //3. Change the h1 title to say "Game Over, Press Any Key to Restart" if the user got the answer wrong.
       $("#level-title").text("Game Over, Press Any Key to Restart");
+      startOver(); //call function to restart game if user gets wrong
     }
 
 }
@@ -81,4 +82,11 @@ function animatePress(currentColor) {
   setTimeout(function () {
     $("#" + currentColor).removeClass("pressed");
   }, 100);
+}
+
+function startOver(){ //function to restart game if user gets wrong
+    level = 0;
+    started = false;
+    gamePattern = [];
+    userClickedPattern = [];
 }
