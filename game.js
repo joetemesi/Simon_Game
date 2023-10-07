@@ -14,7 +14,7 @@ $(document).keypress(function() {
   }
 });
 
-$(".btn").click(function() {
+$(".btn").on("click", function() { //button click event listener.
 
   var userChosenColour = $(this).attr("id");
   userClickedPattern.push(userChosenColour);
@@ -58,7 +58,7 @@ function checkAnswer(currentLevel) {
 
 }
 
-function nextSequence() {
+function nextSequence() { 
 
   userClickedPattern = [];
   level++;
@@ -72,7 +72,7 @@ function nextSequence() {
   playSound(randomChosenColour);
 }
 
-function playSound(name) {
+function playSound(name) { //function to play audio
   var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
 }
